@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;  // Ensure this matches the folder structure
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,10 +29,10 @@ class Paiement
     #[ORM\Column(type: 'string', length: 50)]
     private string $statut;
 
-    #[ORM\Column(name: 'numeroCarteBleu', type: 'string', length: 16)]  // Credit card number
+    #[ORM\Column(name: 'numeroCarteBleu', type: 'string', length: 16)]  
     private string $numeroCarteBleu;
 
-    // Getters and Setters
+    
     public function getId(): ?int
     {
         return $this->id;
