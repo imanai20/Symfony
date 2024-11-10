@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Voitures{% endblock %}
+
+{% block body %}
+    <h1>Nos Voitures Disponibles</h1>
+    <div class="voitures">
+        {% for voiture in voitures %}
+            <div class="voiture">
+                <h2>{{ voiture.marque }} {{ voiture.modele }}</h2>
+                <p>Prix: {{ voiture.prix | number_format(2, ',', ' ') }} €</p>
+                {% if voiture.imageUrl %}
+                    <a href="{{ path('ajouter_au_panier', {'id': voiture.id}) }}">
+                        <img src="{{ voiture.imageUrl }}" alt="{{ voiture.marque }} {{ voiture.modele }}" class="voiture-image">
+                    </a>
+                {% else %}
+                    <p><em>Aucune image disponible</em></p>
+                {% endif %}
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;  
+        }
+
+        
+        .voitures {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 15px;  
+            padding: 10px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        
+        .voiture {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;  
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .voiture:hover {
+            transform: translateY(-5px);  
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .voiture h2 {
+            font-size: 1.4em;  
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .voiture p {
+            font-size: 1.1em;  
+            color: #666;
+            margin-bottom: 15px;  
+        }
+
+        .voiture-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;  
+            transition: transform 0.3s ease;
+        }
+
+        .voiture-image:hover {
+            transform: scale(1.05);
+        }
+
+        em {
+            font-style: italic;
+            color: #999;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin: 10px 0;  
+        }
+    </style>
+{% endblock %}

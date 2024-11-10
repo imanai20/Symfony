@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conatct{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'équipe de développement</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-photos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contact-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-image:hover {
+            transform: scale(1.1);
+        }
+
+
+    </style>
+</head>
+<body>
+    <main class="contact-container">
+        <h1>L'équipe de développement</h1>
+        <br>
+        <div class="contact-photos">
+            <a href="https://www.linkedin.com/in/abder-bess/">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQGE2G9uf_kw-A/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1727784293364?e=1730851200&v=beta&t=xfJUDvMsGalIyAXtsbp-9qL09iTE6IjmTgccLZQ_Esg" alt="Abder Bess" class="contact-image">
+            </a>
+            <a href="https://www.linkedin.com/in/ilyès-manai-a76649266/">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQGMkh94JMoVTw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1724474732435?e=1730851200&v=beta&t=fp6K_s59rFcZBhZK0Qk2wZAfj742xZIZhH3mOoS8EPU" alt="Ilyès Manai" class="contact-image">
+            </a>
+            <a href="https://www.linkedin.com/in/ervin-goby-b52b25235/">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQHabs_X83QYCg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1700214075352?e=1730851200&v=beta&t=Gcdhar0Ymc6_iJZfV8923toAI-eoAIVNRykq7OEVFBw" alt="Ervin Goby" class="contact-image">
+            </a>
+        </div>
+</body>
+</html>
+{% endblock %}
+

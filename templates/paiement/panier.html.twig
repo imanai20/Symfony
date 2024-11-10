@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier{% endblock %}
+
+{% block body %}
+    <h1>Votre Panier</h1>
+    
+    {% if panier %}
+        <ul class="panier-list">
+            {% for id, voiture in panier %}
+                <li class="panier-item">
+                    <span class="voiture-details">{{ voiture.marque }} {{ voiture.modele }} - {{ voiture.prix | number_format(2, ',', ' ') }} €</span>
+                    <form action="{{ path('supprimer_du_panier', {'id': id}) }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ path('paiement') }}" class="btn btn-primary">Aller au paiement</a>
+    {% else %}
+        <p>Votre panier est vide.</p>
+    {% endif %}
+
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        
+        .panier-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .panier-item {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .voiture-details {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        
+        .btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #777;
+        }
+    </style>
+{% endblock %}
